@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#5f5e5e",
+                    "surface-container-low": "#f3f3f3",
+                    "primary": "#000000",
+                    "primary-fixed-dim": "#474746",
+                    "on-tertiary-container": "#ffffff",
+                    "inverse-primary": "#c8c6c5",
+                    "surface-container": "#eeeeee",
+                    "on-primary": "#e5e2e1",
+                    "on-background": "#1a1c1c",
+                    "on-tertiary-fixed": "#ffffff",
+                    "secondary-container": "#d6d4d3",
+                    "on-secondary": "#ffffff",
+                    "surface-container-highest": "#e2e2e2",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-container": "#3c3b3b",
+                    "primary-fixed": "#5f5e5e",
+                    "on-secondary-container": "#1b1c1c",
+                    "on-error-container": "#410002",
+                    "secondary": "#5f5e5e",
+                    "on-secondary-fixed-variant": "#3b3b3b",
+                    "error": "#ba1a1a",
+                    "on-surface": "#1a1c1c",
+                    "on-tertiary-fixed-variant": "#e3e2e2",
+                    "surface-dim": "#dadada",
+                    "outline-variant": "#c6c6c6",
+                    "tertiary-fixed": "#5e5e5e",
+                    "tertiary": "#3b3b3c",
+                    "background": "#f9f9f9",
+                    "on-primary-fixed": "#ffffff",
+                    "inverse-surface": "#2f3131",
+                    "on-tertiary": "#e3e2e2",
+                    "on-primary-fixed-variant": "#e5e2e1",
+                    "surface": "#f9f9f9",
+                    "surface-bright": "#f9f9f9",
+                    "on-error": "#ffffff",
+                    "secondary-fixed": "#c8c6c6",
+                    "on-surface-variant": "#474747",
+                    "on-secondary-fixed": "#1b1c1c",
+                    "tertiary-container": "#747474",
+                    "secondary-fixed-dim": "#acabab",
+                    "inverse-on-surface": "#f0f1f1",
+                    "outline": "#777777",
+                    "tertiary-fixed-dim": "#464747",
+                    "surface-variant": "#e2e2e2",
+                    "on-primary-container": "#ffffff",
+                    "surface-container-high": "#e8e8e8"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #e2e2e2; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-white">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-black/80 backdrop-blur-xl shadow-sm flex justify-between items-center px-8 h-16 w-full font-manrope tracking-tight">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-neutral-900 dark:text-neutral-50">LexisAI</span>
+<div class="hidden md:flex items-center bg-surface-container-low px-4 py-2 rounded-full gap-3 w-80">
+<span class="material-symbols-outlined text-neutral-400 text-sm">search</span>
+<input class="bg-transparent border-none outline-none text-sm w-full focus:ring-0 placeholder:text-neutral-400" placeholder="Search cases, briefs, or statutes..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-primary hover:bg-primary-container text-white px-6 py-2 rounded-full text-sm font-semibold transition-all duration-400 scale-95 hover:scale-100 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">add</span>
+                New Case
+            </button>
+<div class="flex items-center gap-2">
+<button class="p-2 hover:bg-neutral-100/50 dark:hover:bg-neutral-800/50 transition-all duration-400 rounded-full text-neutral-500">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 hover:bg-neutral-100/50 dark:hover:bg-neutral-800/50 transition-all duration-400 rounded-full text-neutral-500">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden ml-2 ring-2 ring-surface-container-high">
+<img alt="User profile" data-alt="Professional portrait of a lawyer in a dark suit against a neutral studio background, soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtyipWpK2rMdWCkxWXKKZUDvLXyZ9IBCvJHGB-JO5Mcx7cW5Lflne7xxZrJAHrfq7zktMIbdE119RaCUjloiwnBF9fCwjljGjna1pffvYFQU0J5y57S1UMPxNMQ0lrcUfGVsfhZQo_kJodvxjVrKWPnr5dEKh4A7kgXelqp_Tj5pWVX3hS0Y_7GVbD95CuFultKDDM_aN2g36f3AgeEAlbpDKJGxoO2-ohHHreTIuNWmqfl7j6WtMXSFniZ6xmH-hIWDJ0fhTdUOw"/>
+</div>
+</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="flex flex-col w-64 p-4 fixed left-0 top-16 bg-neutral-50 dark:bg-neutral-950 rounded-r-3xl h-[calc(100vh-2rem)] my-4 ml-4 font-manrope text-sm font-medium z-40">
+<div class="mb-8 px-4 flex items-center gap-3">
+<div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">gavel</span>
+</div>
+<div>
+<h3 class="font-black text-neutral-900 dark:text-white leading-tight">Lexis Workspace</h3>
+<p class="text-xs text-neutral-500">Premium Tier</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Active: Dashboard (closest match for Workspace view) -->
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-neutral-800 text-black dark:text-white shadow-sm rounded-full transition-all duration-400 cubic-bezier(0.23, 1, 0.32, 1)" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 hover:bg-neutral-200/50 dark:hover:bg-neutral-800/50 rounded-full transition-all duration-400" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+                Briefs
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 hover:bg-neutral-200/50 dark:hover:bg-neutral-800/50 rounded-full transition-all duration-400" href="#">
+<span class="material-symbols-outlined" data-icon="travel_explore">travel_explore</span>
+                Research
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 hover:bg-neutral-200/50 dark:hover:bg-neutral-800/50 rounded-full transition-all duration-400" href="#">
+<span class="material-symbols-outlined" data-icon="folder_shared">folder_shared</span>
+                Repository
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 hover:bg-neutral-200/50 dark:hover:bg-neutral-800/50 rounded-full transition-all duration-400" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+                Analytics
+            </a>
+</nav>
+<div class="mt-auto space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-neutral-500 hover:bg-neutral-200/50 rounded-full transition-all" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+                Support
+            </a>
+<div class="p-4 bg-surface-container rounded-2xl mt-4">
+<p class="text-xs text-on-surface-variant mb-3">Storage usage: 85%</p>
+<div class="h-1.5 w-full bg-outline-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[85%] rounded-full"></div>
+</div>
+<button class="w-full mt-4 bg-primary text-white py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all hover:bg-primary-container">
+                    Upgrade Plan
+                </button>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-72 mt-20 p-6 flex flex-col md:flex-row gap-6 h-[calc(100vh-6rem)] overflow-hidden">
+<!-- Left: Chat Interface -->
+<section class="flex-1 flex flex-col bg-surface-container-low rounded-xl overflow-hidden shadow-sm relative">
+<div class="p-6 flex items-center justify-between bg-white/40 backdrop-blur-md">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-primary/5 rounded-lg">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+</div>
+<div>
+<h2 class="text-lg font-bold tracking-tight">Legal AI Assistant</h2>
+<p class="text-xs text-neutral-500 flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+                            Analyzing case law in real-time
+                        </p>
+</div>
+</div>
+</div>
+<!-- Messages Area -->
+<div class="flex-1 overflow-y-auto p-6 space-y-8">
+<!-- User Message -->
+<div class="flex justify-end">
+<div class="max-w-[80%] bg-primary text-white px-6 py-4 rounded-xl shadow-lg shadow-primary/10">
+<p class="text-sm leading-relaxed">Analyze the liability implications in Johnson v. Smith (2022) regarding medical malpractice and informed consent.</p>
+</div>
+</div>
+<!-- AI Response -->
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm shrink-0">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</div>
+<div class="max-w-[85%] bg-white px-6 py-5 rounded-xl shadow-sm border border-black/5">
+<p class="text-sm leading-relaxed text-on-surface mb-4">In <span class="font-bold">Johnson v. Smith (2022)</span>, the court centered on the "Material Risk" standard. Key implications found in the case record:</p>
+<ul class="space-y-3">
+<li class="flex items-start gap-3 text-sm text-neutral-600">
+<span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span>
+                                The physician failed to disclose a 2% risk of neurological impairment.
+                            </li>
+<li class="flex items-start gap-3 text-sm text-neutral-600">
+<span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span>
+                                Established that "Subjective Intent" of the patient is secondary to "Reasonable Patient" expectations.
+                            </li>
+</ul>
+</div>
+</div>
+<!-- Active Message Placeholder with Blur -->
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm shrink-0">
+<span class="material-symbols-outlined text-primary">pending</span>
+</div>
+<div class="max-w-[70%] bg-white/60 backdrop-blur-sm px-6 py-5 rounded-xl border border-dashed border-neutral-300">
+<div class="space-y-2">
+<div class="h-2 w-48 bg-neutral-200 rounded-full animate-pulse"></div>
+<div class="h-2 w-32 bg-neutral-200 rounded-full animate-pulse"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Chat Input Container -->
+<div class="p-6 mt-auto">
+<div class="bg-white rounded-xl shadow-xl p-4 ring-1 ring-black/5">
+<div class="flex gap-2 mb-4 overflow-x-auto pb-2 scrollbar-hide">
+<button class="whitespace-nowrap px-4 py-1.5 bg-surface-container-low rounded-full text-xs font-semibold hover:bg-surface-container-high transition-colors">Compare with Smith v. Jones</button>
+<button class="whitespace-nowrap px-4 py-1.5 bg-surface-container-low rounded-full text-xs font-semibold hover:bg-surface-container-high transition-colors">Draft a brief section</button>
+<button class="whitespace-nowrap px-4 py-1.5 bg-surface-container-low rounded-full text-xs font-semibold hover:bg-surface-container-high transition-colors">Cite sources</button>
+</div>
+<div class="relative">
+<textarea class="w-full bg-surface-container-low border-none focus:ring-0 rounded-xl p-4 text-sm resize-none h-24 placeholder:text-neutral-400" placeholder="Ask Lawyered about any legal document..."></textarea>
+<div class="absolute bottom-3 right-3 flex items-center gap-2">
+<button class="p-2 text-neutral-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">attach_file</span>
+</button>
+<button class="bg-primary text-white p-2 rounded-lg hover:bg-primary-container transition-all">
+<span class="material-symbols-outlined">arrow_upward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Right: Legal Results -->
+<section class="w-full md:w-[40%] flex flex-col gap-6 overflow-y-auto pr-2">
+<div class="flex items-center justify-between mb-2">
+<h3 class="text-sm font-black uppercase tracking-widest text-neutral-400">Search Results</h3>
+<div class="flex gap-2">
+<button class="p-2 bg-white rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+</button>
+<button class="p-2 bg-white rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-sm">sort</span>
+</button>
+</div>
+</div>
+<!-- Result Card 1 -->
+<div class="bg-white p-6 rounded-xl shadow-sm border border-transparent hover:border-primary/10 transition-all duration-400 cursor-pointer group">
+<div class="flex justify-between items-start mb-4">
+<span class="bg-green-50 text-green-700 text-[10px] font-bold uppercase tracking-tighter px-2 py-1 rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+                        Verified Case
+                    </span>
+<span class="text-[10px] font-medium text-neutral-400">Supreme Court of NY</span>
+</div>
+<h4 class="font-bold text-lg mb-2 group-hover:text-primary transition-colors">Johnson v. Smith Medical Group</h4>
+<p class="text-xs text-neutral-500 mb-4 line-clamp-3 leading-relaxed">Comprehensive ruling on the scope of informed consent in elective procedures involving emerging technology.</p>
+<div class="flex items-center gap-4 pt-4 border-t border-surface-container">
+<div class="flex flex-col">
+<span class="text-[10px] text-neutral-400 uppercase">Docket No.</span>
+<span class="text-xs font-bold">22-CV-1049</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] text-neutral-400 uppercase">Decided</span>
+<span class="text-xs font-bold">Oct 14, 2022</span>
+</div>
+</div>
+</div>
+<!-- Result Card 2 (Active/Selected State) -->
+<div class="bg-white p-6 rounded-xl shadow-lg ring-2 ring-primary transition-all duration-400 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-5">
+<span class="material-symbols-outlined text-6xl">balance</span>
+</div>
+<div class="flex justify-between items-start mb-4">
+<span class="bg-primary text-white text-[10px] font-bold uppercase tracking-tighter px-2 py-1 rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">grade</span>
+                        Key Precedent
+                    </span>
+<span class="text-[10px] font-medium text-neutral-400">California Court of Appeals</span>
+</div>
+<h4 class="font-bold text-lg mb-2">Doe v. General Hospital Corp.</h4>
+<p class="text-xs text-on-surface mb-4 leading-relaxed italic">"The failure to disclose even remote risks in elective surgery creates a prima facie case of negligence."</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-2 py-1 bg-surface-container-low rounded text-[10px] font-medium">Informed Consent</span>
+<span class="px-2 py-1 bg-surface-container-low rounded text-[10px] font-medium">Materiality</span>
+<span class="px-2 py-1 bg-surface-container-low rounded text-[10px] font-medium">Duty of Care</span>
+</div>
+<button class="w-full py-2 bg-primary-container text-white rounded-lg text-xs font-bold hover:bg-primary transition-colors">
+                    View Full Transcript
+                </button>
+</div>
+<!-- Result Card 3 -->
+<div class="bg-white/60 p-6 rounded-xl shadow-sm border border-black/5 opacity-80 hover:opacity-100 transition-opacity">
+<div class="flex justify-between items-start mb-4">
+<span class="bg-neutral-100 text-neutral-600 text-[10px] font-bold uppercase tracking-tighter px-2 py-1 rounded flex items-center gap-1">
+                        Statutory Reference
+                    </span>
+<span class="text-[10px] font-medium text-neutral-400">UCC Art. 2</span>
+</div>
+<h4 class="font-bold text-lg mb-2">Section 2-314: Implied Warranty</h4>
+<p class="text-xs text-neutral-500 mb-4 leading-relaxed">Implied warranty of merchantability and usage of trade in commercial medical procurement.</p>
+<div class="flex items-center justify-between pt-4 border-t border-surface-container">
+<span class="text-[10px] font-bold text-primary">12 Related Citations</span>
+<span class="material-symbols-outlined text-neutral-400">open_in_new</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Component -->
+<footer class="flex justify-between items-center px-12 w-full mt-auto py-8 bg-transparent font-manrope text-xs uppercase tracking-widest text-neutral-400 z-30">
+<div>© 2024 LEXIS AI. ALL RIGHTS RESERVED.</div>
+<div class="flex gap-8">
+<a class="hover:text-neutral-900 transition-colors duration-400" href="#">Privacy Policy</a>
+<a class="hover:text-neutral-900 transition-colors duration-400" href="#">Terms of Service</a>
+<a class="hover:text-neutral-900 transition-colors duration-400" href="#">Security</a>
+</div>
+</footer>
+</body></html>

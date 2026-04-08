@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lawyered Intelligence | Explain Your Situation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#d4d4d7",
+                        "on-secondary-fixed-variant": "#5a5c5e",
+                        "surface-container": "#eaeff1",
+                        "primary": "#004ee7",
+                        "on-tertiary-container": "#595c63",
+                        "secondary-fixed": "#e2e2e5",
+                        "primary-fixed": "#dce1ff",
+                        "surface-container-high": "#e3e9ec",
+                        "on-tertiary-fixed-variant": "#63666d",
+                        "on-background": "#2b3437",
+                        "error-dim": "#4f0116",
+                        "on-tertiary": "#f8f8ff",
+                        "secondary-dim": "#525355",
+                        "tertiary-fixed": "#f2f3fc",
+                        "on-secondary": "#f9f9fb",
+                        "on-tertiary-fixed": "#474a51",
+                        "inverse-on-surface": "#9b9d9e",
+                        "surface-dim": "#d1dce0",
+                        "on-primary-container": "#0043ca",
+                        "inverse-surface": "#0c0f10",
+                        "on-primary-fixed": "#0034a1",
+                        "on-primary": "#f8f7ff",
+                        "surface-variant": "#dbe4e7",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#dce1ff",
+                        "tertiary-container": "#f2f3fc",
+                        "tertiary-fixed-dim": "#e3e5ee",
+                        "on-error-container": "#782232",
+                        "primary-dim": "#0044cc",
+                        "surface-container-highest": "#dbe4e7",
+                        "error": "#9e3f4e",
+                        "on-error": "#fff7f7",
+                        "surface": "#f8f9fa",
+                        "surface-container-low": "#f1f4f6",
+                        "secondary": "#5e5f61",
+                        "background": "#f8f9fa",
+                        "on-surface": "#2b3437",
+                        "on-secondary-fixed": "#3e3f42",
+                        "outline-variant": "#abb3b7",
+                        "primary-fixed-dim": "#c9d3ff",
+                        "on-primary-fixed-variant": "#004ce1",
+                        "tertiary-dim": "#50535a",
+                        "on-surface-variant": "#586064",
+                        "surface-tint": "#004ee7",
+                        "error-container": "#ff8b9a",
+                        "surface-bright": "#f8f9fa",
+                        "outline": "#737c7f",
+                        "tertiary": "#5c5f66",
+                        "inverse-primary": "#6789ff",
+                        "on-secondary-container": "#505254",
+                        "secondary-container": "#e2e2e5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+        .text-area-minimal {
+            resize: none;
+            scrollbar-width: none;
+        }
+        .text-area-minimal::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface min-h-screen flex flex-col">
+<!-- TopNavBar: Supressed per 'Task-Focused' flow rule, but using internal branding for context -->
+<header class="fixed top-0 w-full flex justify-between items-center px-8 h-20 z-50 bg-white/80 backdrop-blur-md">
+<div class="flex items-center gap-2">
+<span class="text-xl font-bold tracking-tighter text-slate-900">Lawyered</span>
+<div class="h-4 w-[1px] bg-outline-variant/30 mx-2"></div>
+<span class="font-headline text-sm font-medium tracking-wide text-secondary uppercase">Intelligence</span>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-sm font-label font-semibold text-secondary hover:text-on-surface transition-colors">Cancel</button>
+</div>
+</header>
+<!-- Main Content: The Focused Flow -->
+<main class="flex-grow flex flex-col items-center justify-center px-6 pt-20 pb-32">
+<div class="w-full max-w-3xl flex flex-col items-center text-center">
+<!-- Step Indicator -->
+<div class="mb-12">
+<span class="font-label text-[10px] font-bold tracking-[0.2em] uppercase text-primary mb-2 block">Step 01 — Context</span>
+<h1 class="text-4xl md:text-5xl font-headline font-bold text-on-surface tracking-tighter leading-tight">
+                    Tell us what happened.
+                </h1>
+<p class="mt-4 text-on-surface-variant font-body text-lg max-w-xl mx-auto leading-relaxed">
+                    Our deterministic AI will analyze your narrative to identify legal precedents and procedural paths.
+                </p>
+</div>
+<!-- Single-Field Text Area -->
+<div class="w-full relative mb-12 group">
+<textarea class="w-full text-area-minimal bg-transparent border-none text-2xl md:text-3xl font-body font-normal text-on-surface placeholder:text-outline-variant focus:ring-0 focus:outline-none leading-snug p-0 text-center" placeholder="Describe what happened in your own words..." rows="8"></textarea>
+<!-- Decorative Layering -->
+<div class="absolute -bottom-4 left-1/2 -translate-x-1/2 w-32 h-[2px] bg-primary scale-x-0 group-focus-within:scale-x-100 transition-transform duration-500 ease-out"></div>
+</div>
+<!-- Example Buttons -->
+<div class="flex flex-col items-center gap-6 w-full">
+<span class="font-label text-xs font-semibold text-outline tracking-widest uppercase">Example Situations</span>
+<div class="flex flex-wrap justify-center gap-3">
+<button class="px-6 py-3 border border-outline-variant/30 hover:border-on-surface rounded-lg transition-all duration-200 text-sm font-medium text-on-surface bg-transparent">
+                        "I received a cease and desist regarding a domain name..."
+                    </button>
+<button class="px-6 py-3 border border-outline-variant/30 hover:border-on-surface rounded-lg transition-all duration-200 text-sm font-medium text-on-surface bg-transparent">
+                        "A contract dispute regarding service delivery timelines..."
+                    </button>
+<button class="px-6 py-3 border border-outline-variant/30 hover:border-on-surface rounded-lg transition-all duration-200 text-sm font-medium text-on-surface bg-transparent">
+                        "Clarification on employment termination clauses..."
+                    </button>
+</div>
+</div>
+<!-- Primary CTA -->
+<div class="mt-20 flex flex-col items-center gap-4">
+<button class="bg-inverse-surface text-surface-container-lowest px-12 py-4 font-headline font-bold text-base tracking-tight hover:bg-on-surface transition-all active:scale-95 flex items-center gap-3">
+                    Submit Case Details
+                    <span class="material-symbols-outlined text-lg" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<p class="text-[11px] font-body text-outline max-w-xs leading-tight">
+                    Your data is processed within a secure, encrypted environment compliant with attorney-client privilege standards.
+                </p>
+</div>
+</div>
+</main>
+<!-- Side Graphic (Subtle Architectural Detail) -->
+<div class="fixed left-0 top-1/2 -translate-y-1/2 w-px h-64 bg-gradient-to-b from-transparent via-outline-variant/20 to-transparent"></div>
+<div class="fixed right-0 top-1/2 -translate-y-1/2 w-px h-64 bg-gradient-to-b from-transparent via-outline-variant/20 to-transparent"></div>
+<!-- Footer: Shared Component Alignment -->
+<footer class="w-full py-12 border-t border-slate-100">
+<div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="text-xs font-body text-slate-400">
+                © 2024 Lawyered Intelligence. All rights reserved.
+            </div>
+<div class="flex items-center gap-8">
+<a class="text-xs font-body text-slate-400 hover:text-slate-900 transition-colors" href="#">Terms of Service</a>
+<a class="text-xs font-body text-slate-400 hover:text-slate-900 transition-colors" href="#">Privacy Policy</a>
+<a class="text-xs font-body text-slate-400 hover:text-slate-900 transition-colors" href="#">Compliance</a>
+<a class="text-xs font-body text-slate-400 hover:text-slate-900 transition-colors" href="#">Security</a>
+</div>
+</div>
+</footer>
+<!-- Image for Context/Atmosphere (Hidden/Decorative) -->
+<div class="sr-only">
+<img data-alt="clean minimal architectural photography of a white spiral staircase against a bright sky, emphasizing precision and structure in high-key lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQT8UQLlcMiRgKJKgujSlAw1Qifg8okfPPwxG0WAZGs7aqgceq7mHUoOosdloN1Tek471yi2e8njFAM61h9SpFJ2mgyU6yZS1MnAlnBj6m7ZOs2N3UGfR40pv73vVBj5skOTvhuPhzGzTJtDiboPZIQDCnZoZ50vl9xT4OFYtL_dHOat--fcgJ0SqOs9Y-DXuyGKwW9DiGtTmEP4tS6Ie0YzgeVC1IgBi7DHyUjFHwb5gcywRtja55OCx-Ara3W1ADeC3O5q7cj7k"/>
+</div>
+</body></html>

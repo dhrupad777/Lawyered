@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+:root {
+  --brand: #004ee7;
+  --brand-dim: #0044cc;
+}
+
+html, body {
+  background: #f8f9fa;
+  color: #1e293b;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-manrope), 'Manrope', system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #0f172a;
+}
+
+p, span, a, li, div, input, textarea, button {
+  font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
+}
+
+a { text-decoration: none; }
+
+::selection {
+  background: #004ee7;
+  color: #fff;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive grid helpers */
+.grid-2-to-1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+@media (max-width: 640px) {
+  .grid-2-to-1 { grid-template-columns: 1fr; }
+}
+
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+@media (max-width: 640px) {
+  .grid-cards { grid-template-columns: 1fr; }
+}
+
+/* Skeleton loading animation */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 6px;
+}
+
+/* Source badges */
+.badge-verified {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 3px 8px; border-radius: 4px; font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.05em;
+  background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0;
+}
+.badge-ai {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 3px 8px; border-radius: 4px; font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.05em;
+  background: #eff6ff; color: #004ee7; border: 1px solid #bfdbfe;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Responsive header labels ──────────────────────────────────────────
+   On wide screens we show full text labels next to header button icons
+   ("Regenerate", "History", "New Research"). On narrow screens (<480px)
+   we collapse to icon-only so the header doesn't overflow on phones.
+   The icons themselves stay visible at every breakpoint and every button
+   has a `title` + `aria-label` so the action is never ambiguous. */
+.responsive-label-full { display: inline; }
+@media (max-width: 480px) {
+  .responsive-label-full { display: none; }
+}
+
+/* ── Centered section helpers ──────────────────────────────────────────
+   Used by the Overview and Strategy tabs to center-align the body copy
+   inside cards (per design request). Lists, grids and tables stay
+   left-aligned because center-aligning multi-line bullets is unreadable. */
+.center-card { text-align: center; }
+.center-card h2,
+.center-card h3 { text-align: center; }
+.center-card > p { text-align: center; }
+.center-pill-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}

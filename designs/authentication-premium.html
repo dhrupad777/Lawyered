@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lawyered | Access Terminal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "secondary-fixed-dim": "#d4d4d7",
+                "on-secondary-fixed-variant": "#5a5c5e",
+                "surface-container": "#eaeff1",
+                "primary": "#004ee7",
+                "on-tertiary-container": "#595c63",
+                "secondary-fixed": "#e2e2e5",
+                "primary-fixed": "#dce1ff",
+                "surface-container-high": "#e3e9ec",
+                "on-tertiary-fixed-variant": "#63666d",
+                "on-background": "#2b3437",
+                "error-dim": "#4f0116",
+                "on-tertiary": "#f8f8ff",
+                "secondary-dim": "#525355",
+                "tertiary-fixed": "#f2f3fc",
+                "on-secondary": "#f9f9fb",
+                "on-tertiary-fixed": "#474a51",
+                "inverse-on-surface": "#9b9d9e",
+                "surface-dim": "#d1dce0",
+                "on-primary-container": "#0043ca",
+                "inverse-surface": "#0c0f10",
+                "on-primary-fixed": "#0034a1",
+                "on-primary": "#f8f7ff",
+                "surface-variant": "#dbe4e7",
+                "surface-container-lowest": "#ffffff",
+                "primary-container": "#dce1ff",
+                "tertiary-container": "#f2f3fc",
+                "tertiary-fixed-dim": "#e3e5ee",
+                "on-error-container": "#782232",
+                "primary-dim": "#0044cc",
+                "surface-container-highest": "#dbe4e7",
+                "error": "#9e3f4e",
+                "on-error": "#fff7f7",
+                "surface": "#f8f9fa",
+                "surface-container-low": "#f1f4f6",
+                "secondary": "#5e5f61",
+                "background": "#f8f9fa",
+                "on-surface": "#2b3437",
+                "on-secondary-fixed": "#3e3f42",
+                "outline-variant": "#abb3b7",
+                "primary-fixed-dim": "#c9d3ff",
+                "on-primary-fixed-variant": "#004ce1",
+                "tertiary-dim": "#50535a",
+                "on-surface-variant": "#586064",
+                "surface-tint": "#004ee7",
+                "error-container": "#ff8b9a",
+                "surface-bright": "#f8f9fa",
+                "outline": "#737c7f",
+                "tertiary": "#5c5f66",
+                "inverse-primary": "#6789ff",
+                "on-secondary-container": "#505254",
+                "secondary-container": "#e2e2e5"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "fontFamily": {
+                "headline": ["Manrope"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .lawyered-logo {
+            font-family: 'Manrope', sans-serif;
+            letter-spacing: -0.04em;
+        }
+        .focused-input:focus {
+            outline: none;
+            border-bottom-color: #004ee7;
+        }
+        .asymmetric-bg {
+            background: radial-gradient(circle at 10% 20%, rgba(0, 78, 231, 0.03) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 80%, rgba(0, 78, 231, 0.02) 0%, transparent 40%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex items-center justify-center p-6 asymmetric-bg">
+<main class="w-full max-w-[440px] z-10">
+<!-- Logo Section -->
+<div class="text-center mb-12">
+<h1 class="lawyered-logo text-5xl font-extrabold text-inverse-surface">Lawyered</h1>
+<p class="font-headline text-secondary mt-2 font-medium tracking-tight">Intelligence for Legal Strategy</p>
+</div>
+<!-- Authentication Card -->
+<div class="bg-surface-container-lowest p-8 md:p-12 shadow-[0px_24px_48px_rgba(43,52,55,0.06)] border border-outline-variant/10 rounded-sm">
+<!-- Social Login -->
+<div class="mb-8">
+<button class="w-full flex items-center justify-center gap-3 py-3.5 px-4 bg-white border border-outline-variant/30 hover:bg-surface-container-low transition-colors duration-200 text-on-surface font-semibold text-sm rounded-sm">
+<img alt="Google Logo" class="w-5 h-5" data-alt="Official Google G icon with four colors on a white circular background representing authentication" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOSYuZEjraYslMAsQNEuWsFedJ58ClThSpn6OqDSftbCD4cvT5Dh4nzn06GGpgmQTa-oC6Bk8y7vQFpNrqZnGE78eX8Mtt1AwoZ7q3_YgSGnU3r8B6w8aqFH2R9vpoOQMEIS7QdugirjaTaigf4liAY9c-H2XasiIPoDhVFiGw-6Z-eoRD_MXuOakzhVGKQARRc6XN6Xe-NZH0WBKh_t6wn75R2gxic-Qrk2OyHbvCzOGfSelkfK6A3U09BRb6fWeIPJ55vYnpMhM"/>
+                    Sign in with Google
+                </button>
+</div>
+<div class="relative flex py-4 items-center mb-8">
+<div class="flex-grow border-t border-outline-variant/20"></div>
+<span class="flex-shrink mx-4 text-[10px] font-bold uppercase tracking-widest text-outline">OR TERMINAL ACCESS</span>
+<div class="flex-grow border-t border-outline-variant/20"></div>
+</div>
+<!-- Email/Pass Form -->
+<form class="space-y-8">
+<div class="space-y-1 group">
+<label class="block text-[11px] font-bold text-outline uppercase tracking-wider group-focus-within:text-primary transition-colors" for="email">Work Email</label>
+<input class="w-full py-3 bg-transparent border-t-0 border-x-0 border-b-2 border-outline-variant/20 text-on-surface font-medium placeholder:text-outline/40 focus:ring-0 focus:border-primary transition-all duration-300" id="email" name="email" placeholder="name@firm.com" type="email"/>
+</div>
+<div class="space-y-1 group">
+<div class="flex justify-between items-end">
+<label class="block text-[11px] font-bold text-outline uppercase tracking-wider group-focus-within:text-primary transition-colors" for="password">Password</label>
+<a class="text-[11px] font-semibold text-outline hover:text-primary transition-colors" href="#">FORGOT?</a>
+</div>
+<input class="w-full py-3 bg-transparent border-t-0 border-x-0 border-b-2 border-outline-variant/20 text-on-surface font-medium placeholder:text-outline/40 focus:ring-0 focus:border-primary transition-all duration-300" id="password" name="password" placeholder="••••••••" type="password"/>
+</div>
+<div class="pt-4">
+<button class="w-full py-4 bg-inverse-surface text-white font-bold text-sm tracking-widest uppercase hover:bg-on-background active:scale-[0.98] transition-all duration-200 rounded-sm" type="submit">
+                        Access Terminal
+                    </button>
+</div>
+</form>
+</div>
+<!-- Footer Links -->
+<div class="mt-10 text-center space-y-4">
+<p class="text-sm font-medium text-secondary">
+                Don't have an account? 
+                <a class="text-primary font-bold hover:underline underline-offset-4 ml-1" href="#">Request Access</a>
+</p>
+<div class="pt-8 flex justify-center gap-6 opacity-40 grayscale hover:opacity-100 transition-all duration-500">
+<span class="material-symbols-outlined text-2xl" title="Secure Encryption">lock</span>
+<span class="material-symbols-outlined text-2xl" title="AI Verification">verified_user</span>
+<span class="material-symbols-outlined text-2xl" title="Legal Compliance">gavel</span>
+</div>
+<p class="text-[10px] text-outline uppercase tracking-widest pt-4">
+                © 2024 Lawyered Intelligence. All rights reserved.
+            </p>
+</div>
+</main>
+<!-- Aesthetic Decorative Elements -->
+<div class="fixed top-12 left-12 hidden lg:block">
+<div class="w-px h-32 bg-outline-variant/20"></div>
+<p class="vertical-text text-[10px] text-outline font-bold uppercase tracking-[0.3em] origin-top-left rotate-90 mt-4 translate-x-[-2px]">Confidential</p>
+</div>
+<div class="fixed bottom-12 right-12 hidden lg:block text-right">
+<p class="text-[10px] text-outline font-bold uppercase tracking-[0.2em] mb-4">Architecture v2.04</p>
+<div class="w-32 h-px bg-outline-variant/20 ml-auto"></div>
+</div>
+<style>
+        .vertical-text {
+            writing-mode: vertical-rl;
+        }
+    </style>
+</body></html>

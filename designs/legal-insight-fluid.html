@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#5f5e5e",
+                        "surface-container-low": "#f3f3f3",
+                        "primary": "#000000",
+                        "primary-fixed-dim": "#474746",
+                        "on-tertiary-container": "#ffffff",
+                        "inverse-primary": "#c8c6c5",
+                        "surface-container": "#eeeeee",
+                        "on-primary": "#e5e2e1",
+                        "on-background": "#1a1c1c",
+                        "on-tertiary-fixed": "#ffffff",
+                        "secondary-container": "#d6d4d3",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#e2e2e2",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#3c3b3b",
+                        "primary-fixed": "#5f5e5e",
+                        "on-secondary-container": "#1b1c1c",
+                        "on-error-container": "#410002",
+                        "secondary": "#5f5e5e",
+                        "on-secondary-fixed-variant": "#3b3b3b",
+                        "error": "#ba1a1a",
+                        "on-surface": "#1a1c1c",
+                        "on-tertiary-fixed-variant": "#e3e2e2",
+                        "surface-dim": "#dadada",
+                        "outline-variant": "#c6c6c6",
+                        "tertiary-fixed": "#5e5e5e",
+                        "tertiary": "#3b3b3c",
+                        "background": "#f9f9f9",
+                        "on-primary-fixed": "#ffffff",
+                        "inverse-surface": "#2f3131",
+                        "on-tertiary": "#e3e2e2",
+                        "on-primary-fixed-variant": "#e5e2e1",
+                        "surface": "#f9f9f9",
+                        "surface-bright": "#f9f9f9",
+                        "on-error": "#ffffff",
+                        "secondary-fixed": "#c8c6c6",
+                        "on-surface-variant": "#474747",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "tertiary-container": "#747474",
+                        "secondary-fixed-dim": "#acabab",
+                        "inverse-on-surface": "#f0f1f1",
+                        "outline": "#777777",
+                        "tertiary-fixed-dim": "#464747",
+                        "surface-variant": "#e2e2e2",
+                        "on-primary-container": "#ffffff",
+                        "surface-container-high": "#e8e8e8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fluid-monolith-gradient {
+            background: linear-gradient(145deg, #000000 0%, #3c3b3b 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen selection:bg-primary selection:text-white">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-black/80 backdrop-blur-xl shadow-sm h-16 flex justify-between items-center px-8 font-manrope tracking-tight">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-neutral-900 dark:text-neutral-50">LexisAI</span>
+<div class="hidden md:flex items-center bg-surface-container-low px-4 py-1.5 rounded-full">
+<span class="material-symbols-outlined text-neutral-400 mr-2" data-icon="travel_explore">travel_explore</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-64 text-on-surface-variant" placeholder="Search case law..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 mr-4">
+<button class="p-2 text-neutral-500 hover:bg-neutral-100/50 rounded-full transition-all duration-400"><span class="material-symbols-outlined" data-icon="notifications">notifications</span></button>
+<button class="p-2 text-neutral-500 hover:bg-neutral-100/50 rounded-full transition-all duration-400"><span class="material-symbols-outlined" data-icon="settings">settings</span></button>
+</div>
+<button class="fluid-monolith-gradient text-white px-6 py-2 rounded-full text-sm font-semibold hover:scale-95 duration-400 ease-in-out transition-transform">New Case</button>
+<img class="w-8 h-8 rounded-full object-cover ml-2" data-alt="professional portrait of a legal analyst in a modern office setting with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIF_L_Zh8GixL_4UOLEWamPj4yUOQovHNfvXgRE9Mzkodwjql7oWyeWz-GcaiXT6dy8g6y_XbNqiM-YPrKonLDoX3g__3iKi9421X6PSzAJ9aX4Vj8cbxmYfDy_H_6GdPnWLMkArnfqsuFHFTK3GEfGbtiEjLIgRmrSzWvJSQw4Xp4hscUGblbd723NK_KIZZTMJv03yfZJRFSoGhaNVrq3ohiDIiCYShTKo3mAO1aI-cgYXBfQFGUwRQ-CRjpl-ZtJy5TN9ayeZ4"/>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="hidden lg:flex flex-col w-64 p-4 fixed left-0 top-16 bg-neutral-50 dark:bg-neutral-950 rounded-r-3xl h-[calc(100vh-2rem)] my-4 ml-4 font-manrope text-sm font-medium z-40">
+<div class="flex items-center gap-3 px-4 py-6">
+<div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="gavel" style="font-variation-settings: 'FILL' 1;">gavel</span>
+</div>
+<div>
+<p class="font-black text-neutral-900 dark:text-white leading-none">Lexis Workspace</p>
+<p class="text-xs text-neutral-500 mt-1">Premium Tier</p>
+</div>
+</div>
+<nav class="flex-1 mt-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-neutral-500 hover:bg-neutral-200/50 rounded-full transition-all duration-400 group" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-neutral-800 text-black dark:text-white shadow-sm rounded-full transition-all duration-400" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span>Briefs</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-neutral-500 hover:bg-neutral-200/50 rounded-full transition-all duration-400 group" href="#">
+<span class="material-symbols-outlined" data-icon="travel_explore">travel_explore</span>
+<span>Research</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-neutral-500 hover:bg-neutral-200/50 rounded-full transition-all duration-400 group" href="#">
+<span class="material-symbols-outlined" data-icon="folder_shared">folder_shared</span>
+<span>Repository</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-neutral-500 hover:bg-neutral-200/50 rounded-full transition-all duration-400 group" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span>Analytics</span>
+</a>
+</nav>
+<div class="p-4 bg-primary-container/5 rounded-2xl mb-4">
+<p class="text-xs font-semibold mb-2">92% Case Accuracy</p>
+<div class="w-full bg-neutral-200 h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[92%]"></div>
+</div>
+<button class="mt-4 w-full py-2 bg-primary text-white text-xs rounded-full font-bold">Upgrade Plan</button>
+</div>
+<footer class="space-y-1 pt-4 border-t border-neutral-200/30">
+<a class="flex items-center gap-3 px-4 py-2 text-neutral-400 hover:text-neutral-800 transition-colors duration-400" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="help_outline">help_outline</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-neutral-400 hover:text-neutral-800 transition-colors duration-400" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="inventory_2">inventory_2</span>
+<span>Archive</span>
+</a>
+</footer>
+</aside>
+<!-- Main Content Canvas -->
+<main class="lg:ml-72 pt-24 pb-12 px-8 max-w-7xl mx-auto">
+<!-- Header Actions -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+<div>
+<nav class="flex items-center gap-2 text-xs text-neutral-400 uppercase tracking-widest mb-4">
+<span>Repository</span>
+<span class="material-symbols-outlined text-[10px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-on-surface">Case Analysis #4029</span>
+</nav>
+<h1 class="text-5xl font-extrabold tracking-tighter text-on-surface leading-tight">Intellectual Property<br/>Insight Output</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 px-6 py-3 border border-outline-variant/30 rounded-full text-sm font-medium hover:bg-surface-container-low transition-all duration-400">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+                    Share Analysis
+                </button>
+<button class="flex items-center gap-2 px-8 py-3 fluid-monolith-gradient text-white rounded-full text-sm font-bold shadow-xl hover:scale-95 transition-all duration-400">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+                    Download Report
+                </button>
+</div>
+</div>
+<!-- Bento Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Focal Point: Plain English Summary -->
+<section class="md:col-span-8 bg-surface-container-lowest p-10 rounded-xl shadow-sm relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-8">
+<span class="px-4 py-1.5 bg-neutral-100 rounded-full text-[10px] font-bold uppercase tracking-widest text-neutral-500">Executive Summary</span>
+</div>
+<div class="max-w-2xl">
+<h2 class="text-3xl font-bold tracking-tight mb-6">Plain English Summary</h2>
+<p class="text-lg leading-relaxed text-on-surface-variant font-medium">
+                        The current litigation landscape suggests a high probability of favorable settlement. Recent shifts in appellate court interpretation of digital copyright law emphasize the "transformative use" of the underlying code snippets, rather than literal duplication. 
+                    </p>
+<p class="mt-4 text-lg leading-relaxed text-on-surface-variant">
+                        Our AI models suggest that the defense's reliance on prior-use precedents is weakened by the recent <span class="text-primary font-bold">Artemis v. Nexus</span> ruling.
+                    </p>
+<div class="mt-8 flex gap-4">
+<div class="bg-surface-container-low rounded-2xl p-4 flex-1">
+<span class="text-xs text-neutral-500 block mb-1">Clarity Score</span>
+<span class="text-2xl font-black">98%</span>
+</div>
+<div class="bg-surface-container-low rounded-2xl p-4 flex-1">
+<span class="text-xs text-neutral-500 block mb-1">Risk Quotient</span>
+<span class="text-2xl font-black text-error">Low</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Risk Assessment -->
+<section class="md:col-span-4 bg-surface-container p-8 rounded-xl flex flex-col justify-between">
+<div>
+<h2 class="text-xl font-bold tracking-tight mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="security" style="font-variation-settings: 'FILL' 1;">security</span>
+                        Risk Assessment
+                    </h2>
+<div class="space-y-6 mt-8">
+<div class="flex items-start gap-4">
+<div class="w-2 h-12 bg-error rounded-full mt-1"></div>
+<div>
+<p class="text-sm font-bold">Statutory Limit Risk</p>
+<p class="text-xs text-neutral-500 mt-1">3-month window for filing countersuit before statute of limitations expires.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-2 h-12 bg-primary rounded-full mt-1"></div>
+<div>
+<p class="text-sm font-bold">Evidentiary Strength</p>
+<p class="text-xs text-neutral-500 mt-1">High confidence in technical documentation provided for discovery phase.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 p-6 bg-surface-container-lowest rounded-2xl border border-outline-variant/10">
+<p class="text-xs text-neutral-400 mb-2">Predicted Outcome</p>
+<p class="text-3xl font-black tracking-tighter">Settlement Preferred</p>
+</div>
+</section>
+<!-- What this means for you -->
+<section class="md:col-span-6 bg-surface-container-low p-10 rounded-xl">
+<h2 class="text-2xl font-bold tracking-tight mb-8 flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="person_pin" style="font-variation-settings: 'FILL' 1;">person_pin</span>
+                    What this means for you
+                </h2>
+<div class="space-y-8">
+<div class="flex gap-6">
+<span class="text-4xl font-black text-neutral-200">01</span>
+<div>
+<h3 class="font-bold text-lg mb-2">Immediate Protection</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">You are currently shielded from direct injunctions based on the 'Safe Harbor' provisions identified in your server logs.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<span class="text-4xl font-black text-neutral-200">02</span>
+<div>
+<h3 class="font-bold text-lg mb-2">Market Positioning</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">A successful defense will establish you as a case-law pioneer, potentially deterring future competitors from similar claims.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Recommended Actions -->
+<section class="md:col-span-6 bg-surface-container-lowest p-10 rounded-xl border border-neutral-100">
+<h2 class="text-2xl font-bold tracking-tight mb-8 flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                    Recommended Actions
+                </h2>
+<div class="space-y-4">
+<button class="w-full flex items-center justify-between p-4 bg-surface-container-low rounded-2xl group hover:bg-primary hover:text-white transition-all duration-400">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-neutral-400 group-hover:text-white/50" data-icon="gavel">gavel</span>
+<span class="font-semibold text-sm">Initiate Motion to Dismiss</span>
+</div>
+<span class="material-symbols-outlined text-xs" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 bg-surface-container-low rounded-2xl group hover:bg-primary hover:text-white transition-all duration-400">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-neutral-400 group-hover:text-white/50" data-icon="history_edu">history_edu</span>
+<span class="font-semibold text-sm">Draft Settlement Agreement</span>
+</div>
+<span class="material-symbols-outlined text-xs" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 bg-surface-container-low rounded-2xl group hover:bg-primary hover:text-white transition-all duration-400">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-neutral-400 group-hover:text-white/50" data-icon="find_in_page">find_in_page</span>
+<span class="font-semibold text-sm">Technical Discovery Audit</span>
+</div>
+<span class="material-symbols-outlined text-xs" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- Relevant Cases -->
+<section class="md:col-span-12">
+<h2 class="text-xl font-bold tracking-tight mb-6">Relevant Cases &amp; Precedents</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-primary">
+<div class="flex justify-between items-start mb-4">
+<span class="text-xs font-bold bg-surface-container-low px-2 py-1 rounded">2023 Ruling</span>
+<span class="text-[10px] text-neutral-400 uppercase tracking-widest font-bold">94% Matching</span>
+</div>
+<h4 class="font-bold text-lg mb-2">Artemis v. Nexus Corp</h4>
+<p class="text-xs text-neutral-500 mb-4 italic">Supreme Court Case #AF-4022</p>
+<p class="text-sm text-on-surface-variant line-clamp-3">Established that modular code reuse within proprietary frameworks does not constitute prima facie infringement if functionality is materially improved.</p>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-neutral-300">
+<div class="flex justify-between items-start mb-4">
+<span class="text-xs font-bold bg-surface-container-low px-2 py-1 rounded">2021 Ruling</span>
+<span class="text-[10px] text-neutral-400 uppercase tracking-widest font-bold">81% Matching</span>
+</div>
+<h4 class="font-bold text-lg mb-2">CloudLogic v. Delta</h4>
+<p class="text-xs text-neutral-500 mb-4 italic">Circuit Court Case #B-910</p>
+<p class="text-sm text-on-surface-variant line-clamp-3">Defined the scope of API copyrightability, providing a significant loophole for "mechanical necessity" in interface design.</p>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-neutral-300">
+<div class="flex justify-between items-start mb-4">
+<span class="text-xs font-bold bg-surface-container-low px-2 py-1 rounded">2019 Ruling</span>
+<span class="text-[10px] text-neutral-400 uppercase tracking-widest font-bold">65% Matching</span>
+</div>
+<h4 class="font-bold text-lg mb-2">In Re: Neural Systems</h4>
+<p class="text-xs text-neutral-500 mb-4 italic">District Court Case #D-112</p>
+<p class="text-sm text-on-surface-variant line-clamp-3">Precedent for machine-generated code ownership and the limitations of traditional authorship claims in AI environments.</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer -->
+<footer class="mt-24 pt-12 border-t border-neutral-200/50 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="font-manrope text-xs uppercase tracking-widest text-neutral-400">© 2024 Lexis AI. All rights reserved.</p>
+<div class="flex gap-8">
+<a class="font-manrope text-xs uppercase tracking-widest text-neutral-400 hover:text-neutral-900 transition-colors duration-400" href="#">Privacy Policy</a>
+<a class="font-manrope text-xs uppercase tracking-widest text-neutral-400 hover:text-neutral-900 transition-colors duration-400" href="#">Terms of Service</a>
+<a class="font-manrope text-xs uppercase tracking-widest text-neutral-400 hover:text-neutral-900 transition-colors duration-400" href="#">Security</a>
+</div>
+</footer>
+</main>
+<!-- Contextual Floating Utility -->
+<div class="fixed bottom-8 right-8 flex flex-col gap-3">
+<button class="w-14 h-14 bg-white shadow-xl rounded-full flex items-center justify-center text-primary hover:scale-110 transition-transform duration-400">
+<span class="material-symbols-outlined" data-icon="chat_bubble" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+</button>
+<button class="w-14 h-14 fluid-monolith-gradient shadow-xl rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform duration-400">
+<span class="material-symbols-outlined" data-icon="add" style="font-variation-settings: 'FILL' 0;">add</span>
+</button>
+</div>
+</body></html>

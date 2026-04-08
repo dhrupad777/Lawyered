@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lawyered — Deterministic AI Legal Intelligence Platform</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#d4d4d7",
+                    "on-secondary-fixed-variant": "#5a5c5e",
+                    "surface-container": "#eaeff1",
+                    "primary": "#004ee7",
+                    "on-tertiary-container": "#595c63",
+                    "secondary-fixed": "#e2e2e5",
+                    "primary-fixed": "#dce1ff",
+                    "surface-container-high": "#e3e9ec",
+                    "on-tertiary-fixed-variant": "#63666d",
+                    "on-background": "#2b3437",
+                    "error-dim": "#4f0116",
+                    "on-tertiary": "#f8f8ff",
+                    "secondary-dim": "#525355",
+                    "tertiary-fixed": "#f2f3fc",
+                    "on-secondary": "#f9f9fb",
+                    "on-tertiary-fixed": "#474a51",
+                    "inverse-on-surface": "#9b9d9e",
+                    "surface-dim": "#d1dce0",
+                    "on-primary-container": "#0043ca",
+                    "inverse-surface": "#0c0f10",
+                    "on-primary-fixed": "#0034a1",
+                    "on-primary": "#f8f7ff",
+                    "surface-variant": "#dbe4e7",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-container": "#dce1ff",
+                    "tertiary-container": "#f2f3fc",
+                    "tertiary-fixed-dim": "#e3e5ee",
+                    "on-error-container": "#782232",
+                    "primary-dim": "#0044cc",
+                    "surface-container-highest": "#dbe4e7",
+                    "error": "#9e3f4e",
+                    "on-error": "#fff7f7",
+                    "surface": "#f8f9fa",
+                    "surface-container-low": "#f1f4f6",
+                    "secondary": "#5e5f61",
+                    "background": "#f8f9fa",
+                    "on-surface": "#2b3437",
+                    "on-secondary-fixed": "#3e3f42",
+                    "outline-variant": "#abb3b7",
+                    "primary-fixed-dim": "#c9d3ff",
+                    "on-primary-fixed-variant": "#004ce1",
+                    "tertiary-dim": "#50535a",
+                    "on-surface-variant": "#586064",
+                    "surface-tint": "#004ee7",
+                    "error-container": "#ff8b9a",
+                    "surface-bright": "#f8f9fa",
+                    "outline": "#737c7f",
+                    "tertiary": "#5c5f66",
+                    "inverse-primary": "#6789ff",
+                    "on-secondary-container": "#505254",
+                    "secondary-container": "#e2e2e5"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary selection:text-white">
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full flex justify-between items-center px-8 h-16 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 z-50">
+<div class="flex items-center gap-12">
+<span class="text-xl font-bold tracking-tighter text-slate-900 dark:text-white">Lawyered</span>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-['Manrope'] text-sm font-medium tracking-tight text-slate-900 dark:text-white border-b-2 border-blue-600 pb-1" href="#">Dashboard</a>
+<a class="font-['Manrope'] text-sm font-medium tracking-tight text-slate-500 dark:text-slate-400 hover:text-slate-900 transition-colors" href="#">History</a>
+<a class="font-['Manrope'] text-sm font-medium tracking-tight text-slate-500 dark:text-slate-400 hover:text-slate-900 transition-colors" href="#">Library</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center gap-4 text-slate-400">
+<span class="material-symbols-outlined cursor-pointer hover:text-slate-900 transition-colors" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-slate-900 transition-colors" data-icon="settings">settings</span>
+</div>
+<button class="bg-primary text-white px-5 py-2 text-sm font-semibold rounded-sm hover:bg-primary-dim transition-all active:scale-95 duration-200">
+                New Research
+            </button>
+</div>
+</nav>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-8 pt-32 pb-24 text-center">
+<h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter text-black mb-8 leading-[0.9]">
+                Got screwed legally? <br/>Type what happened.
+            </h1>
+<p class="text-xl md:text-2xl text-secondary max-w-2xl mx-auto mb-16 font-body font-light">
+                Deterministic AI + real case citations. <span class="font-semibold text-black">No hallucinations.</span> Just the law.
+            </p>
+<!-- Interactive Demo -->
+<div class="max-w-3xl mx-auto relative">
+<div class="bg-surface-container-lowest p-4 rounded-lg shadow-sm border border-outline-variant/20 flex flex-col md:flex-row gap-4 items-stretch md:items-center">
+<div class="flex-grow flex items-center gap-3 px-4 py-3 bg-surface-container-low rounded-sm">
+<span class="material-symbols-outlined text-outline" data-icon="gavel">gavel</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-outline/60 font-body text-lg" placeholder="Explain my situation..." type="text"/>
+</div>
+<button class="bg-black text-white px-8 py-4 text-sm font-bold tracking-widest uppercase rounded-sm hover:opacity-90 transition-all active:scale-95">
+                        Start Analysis
+                    </button>
+</div>
+<div class="mt-6 flex flex-wrap justify-center gap-3">
+<span class="text-xs font-bold text-outline-variant uppercase tracking-widest">Trending:</span>
+<span class="text-xs bg-surface-container px-3 py-1 rounded-full cursor-pointer hover:bg-surface-variant transition-colors">Contract Breach</span>
+<span class="text-xs bg-surface-container px-3 py-1 rounded-full cursor-pointer hover:bg-surface-variant transition-colors">Employment Law</span>
+<span class="text-xs bg-surface-container px-3 py-1 rounded-full cursor-pointer hover:bg-surface-variant transition-colors">IP Theft</span>
+</div>
+</div>
+</section>
+<!-- Features Section -->
+<section class="bg-surface-container-low py-32">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+<div class="flex flex-col gap-6">
+<div class="w-12 h-12 bg-black flex items-center justify-center rounded-sm text-white">
+<span class="material-symbols-outlined" data-icon="library_books">library_books</span>
+</div>
+<h3 class="text-2xl font-bold tracking-tight">Case Citations</h3>
+<p class="text-on-surface-variant leading-relaxed">
+                            Every claim is backed by real-world precedent. We browse millions of court records to find the specific rulings that support your claim.
+                        </p>
+</div>
+<div class="flex flex-col gap-6">
+<div class="w-12 h-12 bg-black flex items-center justify-center rounded-sm text-white">
+<span class="material-symbols-outlined" data-icon="verified">verified</span>
+</div>
+<h3 class="text-2xl font-bold tracking-tight">Verified Sources</h3>
+<p class="text-on-surface-variant leading-relaxed">
+                            Data is pulled directly from primary legislative sources. No secondary interpretations, only the raw, codified truth of the law.
+                        </p>
+</div>
+<div class="flex flex-col gap-6">
+<div class="w-12 h-12 bg-black flex items-center justify-center rounded-sm text-white">
+<span class="material-symbols-outlined" data-icon="api">api</span>
+</div>
+<h3 class="text-2xl font-bold tracking-tight">Real-time Legal APIs</h3>
+<p class="text-on-surface-variant leading-relaxed">
+                            Connected directly to the pulse of the legal system. As laws change and new cases are filed, our intelligence updates in real-time.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- RAG Section: Engineered for Precision -->
+<section class="py-40 bg-white">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+<div>
+<span class="text-primary font-bold tracking-widest text-xs uppercase mb-6 block">The Deterministic Engine</span>
+<h2 class="text-5xl md:text-6xl font-bold tracking-tighter mb-8 leading-tight">Engineered for Precision</h2>
+<p class="text-lg text-secondary leading-relaxed mb-10">
+                            Our Retrieval-Augmented Generation (RAG) architecture ensures that our AI never guesses. It first searches the verified legal universe, retrieves relevant documents, and uses those—and only those—to build your strategy.
+                        </p>
+<div class="space-y-6">
+<div class="flex gap-4 items-start">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
+<div>
+<h4 class="font-bold">Fact-Anchored Responses</h4>
+<p class="text-sm text-on-surface-variant">The AI is physically unable to output information not found in the source text.</p>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
+<div>
+<h4 class="font-bold">Transparent Traceability</h4>
+<p class="text-sm text-on-surface-variant">Hover over any word to see the exact page and paragraph of the source document.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative bg-slate-950 p-12 rounded-lg aspect-square flex flex-col justify-center">
+<!-- Abstract Visual representation of RAG -->
+<div class="absolute inset-0 opacity-20 pointer-events-none overflow-hidden" data-alt="abstract geometric blueprint of digital neural network connecting legal documents with glowing blue nodes and lines">
+<div class="w-full h-full bg-gradient-to-br from-blue-900/40 to-transparent"></div>
+</div>
+<div class="relative z-10 grid grid-cols-2 gap-4">
+<div class="bg-white/5 border border-white/10 p-6 rounded-sm backdrop-blur-sm">
+<div class="text-blue-400 mb-4"><span class="material-symbols-outlined" data-icon="database">database</span></div>
+<div class="h-2 w-16 bg-white/20 mb-2"></div>
+<div class="h-2 w-12 bg-white/10"></div>
+</div>
+<div class="bg-white/5 border border-white/10 p-6 rounded-sm translate-y-8">
+<div class="text-blue-400 mb-4"><span class="material-symbols-outlined" data-icon="search">search</span></div>
+<div class="h-2 w-20 bg-white/20 mb-2"></div>
+<div class="h-2 w-8 bg-white/10"></div>
+</div>
+<div class="bg-white/5 border border-white/10 p-6 rounded-sm -translate-y-4">
+<div class="text-blue-400 mb-4"><span class="material-symbols-outlined" data-icon="bolt">bolt</span></div>
+<div class="h-2 w-14 bg-white/20 mb-2"></div>
+<div class="h-2 w-10 bg-white/10"></div>
+</div>
+<div class="bg-primary p-6 rounded-sm translate-y-4 shadow-2xl shadow-primary/20">
+<div class="text-white mb-4"><span class="material-symbols-outlined" data-icon="psychology">psychology</span></div>
+<div class="h-2 w-18 bg-white/40 mb-2"></div>
+<div class="h-2 w-12 bg-white/20"></div>
+</div>
+</div>
+<div class="mt-20 text-center">
+<p class="text-white/40 font-mono text-[10px] tracking-[0.2em] uppercase">Architecture: Retrieval-Augmented Generation v4.2</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="bg-black py-32 text-center">
+<div class="max-w-4xl mx-auto px-8">
+<h2 class="text-white text-5xl md:text-7xl font-bold tracking-tighter mb-12">Ready to defend your rights?</h2>
+<button class="bg-white text-black px-12 py-5 text-lg font-bold tracking-tight rounded-sm hover:bg-slate-100 transition-all active:scale-95">
+                    Try it now
+                </button>
+<p class="text-slate-500 mt-8 text-sm font-medium">Free basic assessment. No credit card required.</p>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800">
+<div class="max-w-7xl mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col items-center md:items-start gap-4">
+<span class="text-slate-900 dark:text-white font-bold tracking-tighter text-lg">Lawyered</span>
+<p class="font-['Inter'] text-xs text-slate-400">© 2024 Lawyered Intelligence. All rights reserved.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-['Inter'] text-xs text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+<a class="font-['Inter'] text-xs text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors opacity-80 hover:opacity-100 underline text-slate-900" href="#">Privacy Policy</a>
+<a class="font-['Inter'] text-xs text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors opacity-80 hover:opacity-100" href="#">Compliance</a>
+<a class="font-['Inter'] text-xs text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors opacity-80 hover:opacity-100" href="#">Security</a>
+</div>
+</div>
+</footer>
+</body></html>

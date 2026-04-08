@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lawyered-frontend
+  labels:
+    app: lawyered-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lawyered-frontend
+  template:
+    metadata:
+      labels:
+        app: lawyered-frontend
+    spec:
+      containers:
+        - name: frontend
+          # Replace with your Artifact Registry image, e.g.
+          # us-central1-docker.pkg.dev/PROJECT_ID/lawyered/lawyered-frontend:latest
+          image: REPLACE_ME/lawyered-frontend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          env:
+            - name: PORT
+              value: "3000"
+            # In-cluster DNS: resolves to the backend Service in the same namespace
+            - name: BACKEND_URL
+              value: "http://lawyered-backend:8080"
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+            limits:
+              cpu: "1000m"
+              memory: "1Gi"
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 30
+            periodSeconds: 30

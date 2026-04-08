@@ -1,0 +1,7 @@
+google-adk>=1.2.1
+ag-ui-adk
+fastapi
+uvicorn
+python-dotenv
+requests
+mcp>=1.0.0

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: lawyered-frontend
+  labels:
+    app: lawyered-frontend
+spec:
+  type: LoadBalancer
+  selector:
+    app: lawyered-frontend
+  ports:
+    - name: http
+      port: 80
+      targetPort: 3000
+      protocol: TCP

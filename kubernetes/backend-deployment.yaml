@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lawyered-backend
+  labels:
+    app: lawyered-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lawyered-backend
+  template:
+    metadata:
+      labels:
+        app: lawyered-backend
+    spec:
+      containers:
+        - name: backend
+          # Replace with your Artifact Registry image, e.g.
+          # us-central1-docker.pkg.dev/PROJECT_ID/lawyered/lawyered-backend:latest
+          image: REPLACE_ME/lawyered-backend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: GOOGLE_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: lawyered-backend-secrets
+                  key: GOOGLE_API_KEY
+            - name: COURTLISTENER_API_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: lawyered-backend-secrets
+                  key: COURTLISTENER_API_TOKEN
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+            limits:
+              cpu: "1000m"
+              memory: "1Gi"
+          readinessProbe:
+            httpGet:
+              path: /api/health
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /api/health
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 30
