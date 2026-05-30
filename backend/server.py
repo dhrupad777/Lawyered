@@ -5,8 +5,17 @@ from agents.context_extractor import context_extractor_agent
 from agents.context_planner import context_planner_agent
 from ag_ui_adk import ADKAgent, add_adk_fastapi_endpoint
 from ag_ui.core.types import RunAgentInput
-from fastapi import FastAPI
+from fastapi import FastAPI, Header
+from pydantic import BaseModel
 import uvicorn
+
+import elastic_client
+
+# Which Elastic MCP path the research agent wired up (remote / local / disabled).
+try:
+    from agents.research import ELASTIC_MODE
+except Exception:
+    ELASTIC_MODE = "disabled"
 
 app = FastAPI(title="Lawyered Backend")
 
@@ -14,6 +23,9 @@ app = FastAPI(title="Lawyered Backend")
 @app.get("/api/health")
 def health() -> dict:
     """Liveness + architecture snapshot for judges and observability."""
+    mcp_servers = ["courtlistener", "google_docs"]
+    if ELASTIC_MODE != "disabled" or elastic_client.is_configured():
+        mcp_servers.append("elastic")
     return {
         "status": "ok",
         "agents": [
@@ -26,16 +38,74 @@ def health() -> dict:
             "context_extractor_agent",
             "context_planner_agent",
         ],
-        "mcp_servers": ["courtlistener", "google_docs"],
+        "mcp_servers": mcp_servers,
+        "elastic": {"mcp_mode": ELASTIC_MODE, **elastic_client.health_snapshot()},
         "endpoints": [
             "/api/chat",
             "/api/chat-draft",
             "/api/context-helper",
             "/api/context-extract",
             "/api/context-planner",
+            "/api/case-memory",
+            "/api/user-docs",
             "/api/health",
         ],
     }
+
+
+# ---------------------------------------------------------------------------
+# Elastic write endpoints (server-side so ELASTIC_API_KEY never reaches the
+# browser). The frontend calls these with the user's x-user-id header; user_id
+# is taken from the header (not the body) so a user can only write their own
+# data — mirroring the Firestore ownership model.
+# ---------------------------------------------------------------------------
+
+class CaseMemoryIn(BaseModel):
+    case_id: str
+    summary: str
+    issue: str = ""
+    status: str = ""
+    win_probability: int | None = None
+    created_at: str = ""
+
+
+class UserDocIn(BaseModel):
+    doc_id: str
+    title: str = ""
+    text: str
+    case_id: str = ""
+    uploaded_at: str = ""
+
+
+@app.post("/api/case-memory")
+def write_case_memory(body: CaseMemoryIn, x_user_id: str = Header(default="anonymous", alias="x-user-id")) -> dict:
+    """Index a finished-case summary into the per-user memory layer."""
+    return elastic_client.upsert_case_memory(
+        {
+            "case_id": body.case_id,
+            "user_id": x_user_id,
+            "summary": body.summary,
+            "issue": body.issue,
+            "status": body.status,
+            "win_probability": body.win_probability,
+            "created_at": body.created_at,
+        }
+    )
+
+
+@app.post("/api/user-docs")
+def write_user_doc(body: UserDocIn, x_user_id: str = Header(default="anonymous", alias="x-user-id")) -> dict:
+    """Index an uploaded document's extracted text into the user-docs index."""
+    return elastic_client.upsert_user_doc(
+        {
+            "doc_id": body.doc_id,
+            "user_id": x_user_id,
+            "case_id": body.case_id,
+            "title": body.title,
+            "text": body.text,
+            "uploaded_at": body.uploaded_at,
+        }
+    )
 
 
 def extract_user_id(input_data: RunAgentInput) -> str:

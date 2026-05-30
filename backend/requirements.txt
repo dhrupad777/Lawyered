@@ -5,3 +5,4 @@ uvicorn
 python-dotenv
 requests
 mcp>=1.0.0
+elasticsearch>=8.15.0

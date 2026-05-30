@@ -262,6 +262,74 @@ export class CaseService {
       deadlines: data.deadlines ?? [],
       status: "ready",
     });
+    // Index this case into the Elastic per-user memory layer so future cases
+    // can retrieve "similar past matters". Fire-and-forget — never block or
+    // break the case flow if Elastic is down or disabled.
+    void this.indexCaseMemory(caseId);
+  }
+
+  /**
+   * Write a case summary into the Elastic memory index via the backend
+   * (/api/case-memory keeps the ELASTIC_API_KEY server-side). Reuses
+   * buildCaseContext() as the document body — the same "case.md" serialization
+   * the agents already read. Safe no-op when Elastic isn't configured.
+   */
+  async indexCaseMemory(caseId: string): Promise<void> {
+    try {
+      const legalCase = await this.getCase(caseId);
+      if (!legalCase) return;
+      await fetch("/api/case-memory", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-user-id": legalCase.userId,
+        },
+        body: JSON.stringify({
+          case_id: caseId,
+          summary: this.buildCaseContext(legalCase),
+          issue: legalCase.overview?.issueDetected ?? "",
+          status: legalCase.status ?? "",
+          win_probability: legalCase.analysis?.winProbability ?? null,
+        }),
+      });
+    } catch {
+      /* fire-and-forget: memory indexing must never break the case flow */
+    }
+  }
+
+  /**
+   * Index a user-uploaded document (extracted text) into the Elastic user-docs
+   * index via the backend, so the research agent can ground answers in the
+   * user's own files. Fire-and-forget; returns false on any failure.
+   */
+  async indexUserDocument(args: {
+    userId: string;
+    title: string;
+    text: string;
+    caseId?: string;
+  }): Promise<boolean> {
+    try {
+      const docId =
+        (globalThis.crypto?.randomUUID?.() ??
+          `doc-${Date.now()}-${Math.round(Math.random() * 1e6)}`);
+      const res = await fetch("/api/user-docs", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-user-id": args.userId,
+        },
+        body: JSON.stringify({
+          doc_id: docId,
+          title: args.title,
+          text: args.text,
+          case_id: args.caseId ?? "",
+        }),
+      });
+      const out = await res.json().catch(() => ({}));
+      return !!out?.ok;
+    } catch {
+      return false;
+    }
   }
 
   /**
@@ -388,6 +456,8 @@ export class CaseService {
       update.deadlines = newDeadlines;
     }
     await updateDoc(doc(this.db, "cases", caseId), update);
+    // Refresh the Elastic memory entry after a regenerate (fire-and-forget).
+    void this.indexCaseMemory(caseId);
   }
 
   /**

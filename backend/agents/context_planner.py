@@ -24,6 +24,7 @@ from google.adk.agents import LlmAgent
 from google.adk.tools import FunctionTool
 
 from prompts import CONTEXT_PLANNER_INSTRUCTION
+from model_config import MODEL
 
 
 # ─── Tool functions ────────────────────────────────────────────────────────
@@ -163,7 +164,7 @@ def mark_done() -> str:
 # ─── Agent ────────────────────────────────────────────────────────────────
 
 context_planner_agent = LlmAgent(
-    model="gemini-2.5-flash",
+    model=MODEL,
     name="context_planner_agent",
     description=(
         "Multi-turn conversational planner agent that behaves like a real "

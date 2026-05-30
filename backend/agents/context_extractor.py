@@ -20,10 +20,11 @@ The frontend then:
 from google.adk.agents import LlmAgent
 
 from prompts import CONTEXT_EXTRACTOR_INSTRUCTION
+from model_config import MODEL
 
 
 context_extractor_agent = LlmAgent(
-    model="gemini-2.5-flash",
+    model=MODEL,
     name="context_extractor_agent",
     description=(
         "Parses a user's free-text case update against the existing case.md and "

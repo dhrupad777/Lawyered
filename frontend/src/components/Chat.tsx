@@ -99,6 +99,9 @@ export function Chat({ initialQuery, userId }: ChatProps) {
           get_case_details: "Retrieving case details",
           get_opinion: "Reading court opinion",
           get_docket: "Fetching docket info",
+          search_caselaw: "Semantic search (Elastic)",
+          find_similar_past_cases: "Checking your past cases",
+          search_user_documents: "Searching your documents",
         };
         const label = labels[name] || `Running ${name}`;
         if (status === "start") {

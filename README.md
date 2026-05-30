@@ -76,9 +76,21 @@ Everything is grounded in either (a) opinions retrieved from the CourtListener p
 
 ---
 
+## 2b. Elastic (Search AI) integration
+
+Lawyered integrates **Elastic** for semantic retrieval — the [Elastic hackathon track](https://elastic.co). The `research_agent` consumes **Elastic Agent Builder's hosted MCP server** (remote, streamable-HTTP, ApiKey auth) alongside CourtListener, mirroring the existing MCP pattern. Three layers:
+
+1. **Semantic case-law RAG** — hybrid (BM25 + ELSER `semantic_text`) search over a curated case-law index (`search_caselaw`), surfacing precedents keyword search misses.
+2. **Cross-case memory** — per-user index of finished cases; `find_similar_past_cases` retrieves prior similar matters.
+3. **User-document RAG** — users upload leases/contracts/evidence; `search_user_documents` lets the agent answer grounded in them (hard-scoped by `user_id`).
+
+A local stdio MCP server (`mcp_servers/elastic_mcp.py`) is the offline/inspector fallback, and the whole feature **degrades gracefully** to CourtListener-only when Elastic env vars are unset. **Full setup, env vars, and verification: [docs/ELASTIC.md](docs/ELASTIC.md).**
+
+---
+
 ## 3. Agent layer (Google ADK + Gemini)
 
-All agents are built with **Google ADK** (`google.adk.agents.LlmAgent`) and run on **Gemini 2.5 Flash**. They are exposed to the browser via **`ag-ui-adk`**, which wraps each agent in a FastAPI route that streams events using the AG-UI Server-Sent-Events protocol.
+All agents are built with **Google ADK** (`google.adk.agents.LlmAgent`) and run on **Gemini 3** (configurable via `LAWYERED_MODEL`; see `backend/model_config.py`). They are exposed to the browser via **`ag-ui-adk`**, which wraps each agent in a FastAPI route that streams events using the AG-UI Server-Sent-Events protocol.
 
 | Agent | File | Tools | Role |
 |---|---|---|---|

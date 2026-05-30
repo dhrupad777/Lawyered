@@ -19,11 +19,12 @@ in two different root contexts.
 from google.adk.agents import LlmAgent
 
 from prompts import DRAFTING_INSTRUCTION
+from model_config import MODEL
 
 
 def _make_drafting_agent(name: str) -> LlmAgent:
     return LlmAgent(
-        model="gemini-2.5-flash",
+        model=MODEL,
         name=name,
         description="Drafts complete legal documents (demand letters, complaint outlines, response letters) using the provided case context. Has no tools. Outputs plain text only, never JSON.",
         instruction=DRAFTING_INSTRUCTION,

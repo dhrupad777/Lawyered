@@ -21,10 +21,11 @@ the frontend through the AG-UI streaming protocol.
 from google.adk.agents import LlmAgent
 
 from prompts import CONTEXT_HELPER_INSTRUCTION
+from model_config import MODEL
 
 
 context_helper_agent = LlmAgent(
-    model="gemini-2.5-flash",
+    model=MODEL,
     name="context_helper_agent",
     description="Reads the existing case context plus a requested action identifier, and returns ONE focused question asking the user for the specific information that's missing to complete that action. Outputs plain text only — no JSON, no code fences.",
     instruction=CONTEXT_HELPER_INSTRUCTION,

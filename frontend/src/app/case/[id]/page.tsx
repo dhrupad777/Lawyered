@@ -7,6 +7,7 @@ import { useAuth } from "@/components/AuthProvider";
 import { caseService, calendarService, docsService, deadlineSlug, applyDeadlineOps, CalendarAuthExpiredError, DocsAuthExpiredError } from "@/lib/services";
 import type { CaseResultPayload, CalendarOp, StructuredFact } from "@/lib/services/CaseService";
 import { ChatService, type ChatMessage } from "@/lib/chat";
+import DocumentUpload from "@/components/DocumentUpload";
 import type { LegalCase } from "@/lib/models/case";
 
 type Tab = "overview" | "analysis" | "documents" | "strategy";
@@ -1142,6 +1143,10 @@ ${trimmed}`;
                 </button>
               </div>
             )}
+            {/* Upload your own documents — indexed semantically into Elastic so
+                the assistant can ground answers in your leases/contracts/evidence. */}
+            <DocumentUpload userId={user?.uid ?? ""} caseId={caseId} />
+
             <h2 style={{ fontSize: 18 }}>Documents You Need</h2>
             {docs.needed.map((d, i) => (
               <div key={i} style={{ background: "#fff", border: "1px solid #e5e7eb", borderRadius: 10, overflow: "hidden" }}>
